@@ -15,7 +15,3 @@ class Land extends Rectangle{
         }
     }
 }
-// var land = new Land(-100);
-// setInterval(() => {
-//     land.move(16/1000);
-// }, 16);

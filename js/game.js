@@ -1,3 +1,5 @@
+import { Time } from "./time.js";
+
 let modal = document.querySelector('.modal');
 
 class Game {
@@ -9,6 +11,7 @@ class Game {
         this.timer = null;
         this.tick = 16;
         this.gameOver = false;
+        this.time = new Time();
     }
     start() {
         if (this.timer) {
@@ -17,6 +20,8 @@ class Game {
         if(this.gameOver){
             window.location.reload();
         }
+        this.time.onVisibleChange();
+        this.time.start();
         this.pipe.startProducer();//生成柱子
         this.bird.startSwing();
         modal.style.display = 'none';
@@ -30,8 +35,9 @@ class Game {
             });
             if (this.isGameOver()) {
                 this.stop();
+                this.time.over();
                 this.gameOver = true;
-                modal.style.display = 'block';
+                modal.style.display = 'flex';
             }
         }, this.tick);
     }
@@ -69,10 +75,10 @@ class Game {
 
     stop() {
         clearInterval(this.timer);
+        this.time.stop();
         this.timer = null;
         this.bird.stopSwing();
         this.pipe.stopProducer();
-        
     }
 
     regEvent() {

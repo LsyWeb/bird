@@ -60,8 +60,3 @@ class Bird extends Rectangle{
         this.speedY = -400;
     }
 }
-// var bird = new Bird();
-
-// setInterval(() => {
-//     bird.move(16/1000);
-// }, 16);

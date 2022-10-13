@@ -75,12 +75,3 @@ class PipePareProducer{
         this.timer = null;
     }
 }
-
-// var producer = new PipePareProducer(-100);
-// producer.startProducer();
-
-// setInterval(() => {
-//     producer.pairs.forEach(pair => {
-//         pair.move(16/1000)
-//     })
-// }, 16);
